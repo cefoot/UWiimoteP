@@ -1,0 +1,13 @@
+\\\\?\\HID#{00001124-0000-1000-8000-00805f9b34fb}_VID&0002057e_PID&0306#8&5e85296&3&0000#{4d1e55b2-f16f-11cf-88cb-001111000030}
+
+
+	<DeviceCapability Name="humaninterfacedevice">
+      <Device Id="vidpid:057e 0306">
+        <Function Type="usage:0005 *"/>
+        <Function Type="usage:0001 *"/>
+      </Device>
+    </DeviceCapability>
+
+
+
+
