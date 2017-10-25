@@ -52,7 +52,7 @@ namespace App1
                         wiimote = foundDevice;
                         Debug.WriteLine(foundDevice);
                         foundDevice.InputReportReceived += FoundDevice_InputReportReceived;
-                        for (ushort i = 20349; i <= ushort.MaxValue; i++)
+                        for (ushort i = 38416; i <= ushort.MaxValue; i++)
                         {
                             try
                             {
