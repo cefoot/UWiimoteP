@@ -52,7 +52,7 @@ namespace App1
                         wiimote = foundDevice;
                         Debug.WriteLine(foundDevice);
                         foundDevice.InputReportReceived += FoundDevice_InputReportReceived;
-                        for (ushort i = 38416; i <= ushort.MaxValue; i++)
+                        for (ushort i = 46765; i <= ushort.MaxValue; i++)
                         {
                             try
                             {
@@ -66,9 +66,10 @@ namespace App1
                                 DataReader dataReader = DataReader.FromBuffer(report.Data);
                                 dataReader.ReadBytes(bytes);*/
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
                                 Debug.WriteLine("false");
+                                Debug.WriteLine(ex);
                             }
 
                         }
