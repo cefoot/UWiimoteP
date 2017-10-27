@@ -1,4 +1,5 @@
-﻿using System;
+﻿using De.Cefoot.UWiimoteP.Data;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -52,27 +53,19 @@ namespace App1
                         wiimote = foundDevice;
                         Debug.WriteLine(foundDevice);
                         foundDevice.InputReportReceived += FoundDevice_InputReportReceived;
-                        for (ushort i = 46765; i <= ushort.MaxValue; i++)
+                        //for (ushort i = 46765; i <= ushort.MaxValue; i++)
+                        //{
+                        try
                         {
-                            try
-                            {
-                                Debug.Write("" + i + ":");
-
-                                var report = await wiimote.GetInputReportAsync(i);
-                                Debug.WriteLine("true");
-                                /*
-                                UInt16 id = report.Id;
-                                var bytes = new byte[22];
-                                DataReader dataReader = DataReader.FromBuffer(report.Data);
-                                dataReader.ReadBytes(bytes);*/
-                            }
-                            catch (Exception ex)
-                            {
-                                Debug.WriteLine("false");
-                                Debug.WriteLine(ex);
-                            }
-
+                            var report = await wiimote.GetInputReportAsync(0x20);
+                            ReadReport(report);
                         }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine(ex);
+                        }
+
+                        //}
                     }
                     catch (Exception ex)
                     {
@@ -83,9 +76,16 @@ namespace App1
             }
         }
 
+        private async void ReadReport(HidInputReport report)
+        {
+            var res = WiimoteReport.GetReportByID(report.Id);
+            var txt = report.Id + ":" + res.ReadReport(report.Data);
+            await tbStatus.Dispatcher.TryRunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => tbStatus.Text = txt);
+        }
+
         private void FoundDevice_InputReportReceived(HidDevice sender, HidInputReportReceivedEventArgs args)
         {
-            Debug.WriteLine(args.Report.ActivatedBooleanControls);
+            ReadReport(args.Report);
         }
     }
 }
