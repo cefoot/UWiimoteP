@@ -37,6 +37,6 @@ namespace De.Cefoot.UWiimoteP.Data
 
         public abstract ushort ReportID { get; }
         public abstract String ReadReport(IBuffer buffer);
-        public abstract void ReadReport(ref Wiimote data);
+        public abstract void ReadReport(IBuffer buffer, ref Wiimote data);
     }
 }

@@ -79,7 +79,10 @@ namespace App1
         private async void ReadReport(HidInputReport report)
         {
             var res = WiimoteReport.GetReportByID(report.Id);
-            var txt = report.Id + ":" + res.ReadReport(report.Data);
+            var wiimote = new Wiimote();
+            res.ReadReport(report.Data, ref wiimote);
+            //var txt = report.Id + ":" + res.ReadReport(report.Data);
+            var txt = wiimote.ToString();
             await tbStatus.Dispatcher.TryRunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => tbStatus.Text = txt);
         }
 

@@ -22,9 +22,12 @@ namespace De.Cefoot.UWiimoteP.Data
             return BitConverter.ToString(bytes);
         }
 
-        public override void ReadReport(ref Wiimote data)
+        public override void ReadReport(IBuffer buffer, ref Wiimote data)
         {
-            throw new NotImplementedException();
+            var bytes = new byte[7];
+            DataReader dataReader = DataReader.FromBuffer(buffer);
+            dataReader.ReadBytes(bytes);
+            ButtonReport.ParseButtons(bytes[1], bytes[2], ref data);
         }
     }
 }
