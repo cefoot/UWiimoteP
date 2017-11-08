@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 
-namespace De.Cefoot.UWiimoteP.Data
+namespace De.Cefoot.UWiiP.Data
 {
     /// <summary>
-    /// http://wiibrew.org/wiki/Wiimote#0x20:_Status
+    /// 0x30:_Core_Buttons
     /// </summary>
-    public class StatusReport : WiimoteReport
+    public class AccelReport : WiimoteReport
     {
-        public override ushort ReportID => 0x20;
+        public override ushort ReportID => 0x31;
 
         public override string ReadReport(IBuffer buffer)
         {
-            var bytes = new byte[7];
+            var bytes = new byte[6];
             DataReader dataReader = DataReader.FromBuffer(buffer);
             dataReader.ReadBytes(bytes);
             return BitConverter.ToString(bytes);
@@ -24,10 +24,14 @@ namespace De.Cefoot.UWiimoteP.Data
 
         public override void ReadReport(IBuffer buffer, ref Wiimote data)
         {
-            var bytes = new byte[7];
+            var bytes = new byte[6];
             DataReader dataReader = DataReader.FromBuffer(buffer);
             dataReader.ReadBytes(bytes);
             ButtonReport.ParseButtons(bytes[1], bytes[2], ref data);
+            data.AccelX = bytes[3];
+            data.AccelY = bytes[4];
+            data.AccelZ = bytes[5];
         }
+
     }
 }

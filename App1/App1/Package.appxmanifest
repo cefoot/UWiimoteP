@@ -1,54 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-
-<Package
-  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
-  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
-  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
-
-  <Identity
-    Name="5dfd3834-ac9f-4fc1-ae59-b1fb73863078"
-    Publisher="CN=cpapenfuss"
-    Version="1.0.0.0" />
-
-  <mp:PhoneIdentity PhoneProductId="5dfd3834-ac9f-4fc1-ae59-b1fb73863078" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
-
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="18346cefoot.UWiiP-Demo" Publisher="CN=EE097064-D816-42B3-B1C9-FD35A1902DD5" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="1985e52d-996b-45b9-8e18-0e8681ce5429" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>App1</DisplayName>
-    <PublisherDisplayName>cpapenfuss</PublisherDisplayName>
+    <DisplayName>UWiiP-Demo</DisplayName>
+    <PublisherDisplayName>cefoot</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
-
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
   </Dependencies>
-
   <Resources>
-    <Resource Language="x-generate"/>
+    <Resource Language="x-generate" />
   </Resources>
-
   <Applications>
-    <Application Id="App"
-      Executable="$targetnametoken$.exe"
-      EntryPoint="App1.App">
-      <uap:VisualElements
-        DisplayName="App1"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="App1"
-        BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="App1.App">
+      <uap:VisualElements DisplayName="UWiiP-Demo" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Techdemo wor UWiiP lib" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="UWiiP" Square310x310Logo="Assets\LargeTile.png" Square71x71Logo="Assets\SmallTile.png">
+        </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
     </Application>
   </Applications>
-
   <Capabilities>
     <Capability Name="internetClient" />
     <DeviceCapability Name="humaninterfacedevice">
-      <Device Id="vidpid:057e 0306">
-        <Function Type="usage:0005 *"/>
-        <Function Type="usage:0001 *"/>
+      <Device Id="vidpid:057e 0306 bluetooth">
+        <Function Type="usage:0005 *" />
+        <Function Type="usage:0001 0005" />
+        <Function Type="usage:0002 *" />
+        <Function Type="usage:0003 *" />
+        <Function Type="usage:0004 *" />
+        <Function Type="usage:0006 *" />
+        <!--<Function Type="usage:0007 *"/>-->
+        <Function Type="usage:0008 *" />
+        <Function Type="usage:0009 *" />
+        <Function Type="usage:000A *" />
+        <Function Type="usage:000B *" />
+        <Function Type="usage:000E *" />
+        <Function Type="usage:000f *" />
+        <Function Type="usage:0010 *" />
+        <Function Type="usage:0011 *" />
+        <Function Type="usage:0012 *" />
+        <Function Type="usage:0013 *" />
+        <Function Type="usage:0014 *" />
+        <Function Type="usage:0015 *" />
+        <Function Type="usage:0016 *" />
+        <Function Type="usage:0017 *" />
+        <Function Type="usage:0018 *" />
+        <Function Type="usage:0019 *" />
+        <Function Type="usage:001A *" />
+        <Function Type="usage:001B *" />
+        <Function Type="usage:001C *" />
+        <Function Type="usage:001D *" />
+        <Function Type="usage:001E *" />
+        <Function Type="usage:001F *" />
+        <Function Type="usage:0021 *" />
       </Device>
     </DeviceCapability>
   </Capabilities>

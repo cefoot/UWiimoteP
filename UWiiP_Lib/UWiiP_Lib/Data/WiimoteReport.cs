@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage.Streams;
 
-namespace De.Cefoot.UWiimoteP.Data
+namespace De.Cefoot.UWiiP.Data
 {
     //See http://wiibrew.org/wiki/Wiimote
     public abstract class WiimoteReport

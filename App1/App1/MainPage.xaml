@@ -8,7 +8,37 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Stretch">
-        <TextBlock x:Name="tbStatus" Text="" TextAlignment="Right" VerticalAlignment="Center" FontSize="30" FontStyle="Italic" Foreground="Gray" Margin="0,0,30,0" />
-        <Button x:Name="btnName" Click="btnName_Click" Content="Button" FontSize="60" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Text="0." FontSize="60" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Text="1." FontSize="60" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Text="2." FontSize="60" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="1" Grid.Row="0"  VerticalAlignment="Center" Orientation="Horizontal"  >
+                <Button x:Name="btnPin" Click="BtnPin_Click" Content="Pair" FontSize="60" />
+                <TextBlock FontSize="35" Foreground="Gray" Text=" only on first start" VerticalAlignment="Center" TextWrapping="WrapWholeWords"/>
+            </StackPanel>
+            <StackPanel  Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal"  >
+                <Button x:Name="btnName" Click="BtnName_Click" Content="Connect" FontSize="60" />
+                <CheckBox Visibility="Collapsed" x:Name="chkWrite" Content="Write" FontSize="60" VerticalAlignment="Center" Margin="20,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
+            </StackPanel>
+            <Button Grid.Column="1" Grid.Row="2" x:Name="btnSts" Click="BtnSts_Click" Content="Status" FontSize="60" />
+            <StackPanel Grid.Column="1" Visibility="Collapsed" Grid.Row="3" VerticalAlignment="Center" Orientation="Horizontal">
+                <Button x:Name="btnReport" Content="Report" FontSize="60" Click="btnReport_Click" />
+                <TextBox x:Name="tbReportNum" FontSize="50" Margin="0,0,1,0" PreviewKeyDown="txtReport_PreviewKeyDown" />
+            </StackPanel>
+            <TextBlock Grid.Column="2" Grid.RowSpan="4" x:Name="tbStatus" Text="" TextAlignment="Right" VerticalAlignment="Center" FontSize="30" FontStyle="Italic" Foreground="Gray" Margin="0,0,30,0" />
+            <HyperlinkButton Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="https://github.com/cefoot/UWiimoteP" Click="HyperlinkButton_Click" />
+        </Grid>
     </Grid>
 </Page>
